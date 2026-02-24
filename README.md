@@ -1,16 +1,16 @@
-# 🧩 Gravity Drop Puzzle — `3e9c2a5f`
+# Gravity Drop Puzzle - `3e9c2a5f`
 
 A custom ARC-AGI puzzle built on three transformation rules applied to colored shapes on a grid.
 
 ---
 
-## 📖 Overview
+## Overview
 
-You are given a **16×16 grid** containing **5 colored shapes** floating near the top. Your job is to figure out what the output grid looks like after all three rules are applied — in order.
+You are given a **16×16 grid** containing **5 colored shapes** floating near the top. Your job is to figure out what the output grid looks like after all three rules are applied - in order.
 
 ---
 
-## 🎨 The 5 Shapes
+## The 5 Shapes
 
 Each input grid contains exactly these five shapes (in varying arrangements):
 
@@ -24,13 +24,11 @@ Each input grid contains exactly these five shapes (in varying arrangements):
 
 ---
 
-## 📏 The Three Rules
+## The Three Rules
 
 Apply these rules **in order** to transform the input into the output:
 
-### Rule 1 — Gravity 🪨
-
-> *Sab niche aa jayenge!*
+### Rule 1 - Gravity 
 
 Every non-zero (colored) cell **falls straight down** in its column, as if pulled by gravity. Cells stack at the bottom of the grid, preserving their top-to-bottom order within each column.
 
@@ -54,9 +52,8 @@ col:  · · ·
 
 ---
 
-### Rule 2 — Triple Stack Color Shift 🔺
+### Rule 2 - Triple Stack Color Shift 
 
-> *Jab teen same color ka stack banta hai…*
 
 After gravity, look at each **column**. If any column has **3 consecutive cells of the same color**, apply this color shift:
 
@@ -74,7 +71,7 @@ After gravity, look at each **column**. If any column has **3 consecutive cells 
 
 ---
 
-### Rule 3 — Bottom Row Gap Fill 🧱
+### Rule 3 - Bottom Row Gap Fill 
 
 > *Bottom row mein gaps bhar do!*
 
@@ -99,42 +96,44 @@ fill_value = ⌈(left_color + right_color) / 2⌉
 
 ---
 
-## 🕹️ How to Play
+## How to Play
 
-1. **Load the puzzle** — Open the file `data/training/3e9c2a5f.json` in the [ARC testing interface](https://arcprize.org/play) or any compatible viewer.
+1. **Load the puzzle** - Open the file `/training/3e9c2a5f.json` in the [ARC testing interface](https://arcprize.org/play) or any compatible viewer.
 
-2. **Study the examples** — The file contains **3 training pairs** (input → output) that demonstrate all three rules in action. Look at them carefully.
+2. **Study the examples** - The file contains **3 training pairs** (input → output) that demonstrate all three rules in action. Look at them carefully.
 
-3. **Solve the test** — You'll be shown a **test input grid**. Apply the three rules mentally (or on paper) and construct the correct output grid.
+3. **Solve the test** - You'll be shown a **test input grid**. Apply the three rules mentally (or on paper) and construct the correct output grid.
 
-4. **Submit** — Build your answer in the grid editor and hit **Submit!**
+4. **Submit** - Build your answer in the grid editor and hit **Submit!**
 
 ---
 
-## 🧠 Solving Strategy
+## Solving Strategy
 
 Here's a step-by-step approach:
 
 1. **Identify the 5 shapes** and their positions in the input.
-2. **Drop everything down** (gravity) — for each column, slide all colored cells to the bottom.
+2. **Drop everything down** (gravity) - for each column, slide all colored cells to the bottom.
 3. **Check each column** for a triple stack of the same color → apply the `+2 / +1 / same` shift.
 4. **Scan the bottom row** for single-cell gaps between colored cells → fill with `⌈avg⌉`.
 5. That's your output!
 
 ---
 
-## 📂 File Location
+## File Location
 
 ```
 ARC-AGI-2/
-└── data/
+└── training/
     ├── 3e9c2a5f.json    ← the puzzle file  
-    └── README.md         ← this file
+└── evaluation/
+    ├── 3e9c2a5f.json    ← the evaluation file
+└── README.md         ← this file
 ```
 
 ---
 
-## 📝 Quick Reference Card
+## Quick Reference Card
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -155,4 +154,4 @@ ARC-AGI-2/
 
 ---
 
-*Good luck and have fun! 🎮*
+*Good luck and have fun!*
